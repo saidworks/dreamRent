@@ -4,6 +4,7 @@ class Post {
     public function __construct()
     {
         $this->db = new Database();
+        
     }
     public function getPosts(){
         $sql = "SELECT *,v.id as vehicleId

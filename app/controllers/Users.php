@@ -156,7 +156,7 @@ class Users extends Controller {
         unset($_SESSION['user_firstName']);
         unset($_SESSION['user_lastName']);
         session_destroy();
-        redirect('pages/index');
+        redirect('users/login');
         
     }
     public function createUserSession($user){
@@ -164,7 +164,7 @@ class Users extends Controller {
         $_SESSION['user_email'] = $user->email;
         $_SESSION['user_firstName'] = $user->firstName;
         $_SESSION['user_lastName'] = $user->lastName;
-        redirect('pages/index');
+        redirect('bookings/index');
     }
   
 }

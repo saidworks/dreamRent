@@ -156,9 +156,8 @@ class Posts extends Controller{
         if(empty($data['categoryId_err']) && empty($data['description_err']) && empty($data['rate_err'])){
             // validated
             if($this->postModel->editPost($data)){
-                var_dump($data);
                 flash('post_message','Post modified');
-                //redirect('posts');
+                redirect('posts');
             }
             else{
                 die('something went wrong');
