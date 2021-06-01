@@ -12,7 +12,7 @@
         <div class="bg-light p-2 mb-3">
         <img class="img-fluid" src="<?php echo $post->picture ?>" alt="">    
         </div>
-        <p class="card-text"><?php echo $post->rate ?></p>
+        <p class="card-text"><?php echo $post->rate.' DH/Day' ?></p>
         
         <!-- query string send an array need to check out why -->
         <a href="<?php echo URLROOT; ?>bookings/booking/<?php echo $post->vehicleId; ?>" class="btn btn-dark">Reserve</a>

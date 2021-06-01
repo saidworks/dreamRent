@@ -46,9 +46,9 @@
                     <label class="input-group-text" for="paymentMethod">Method of payment</label>
                 </div>
                     <select name="paymentMethod" class="custom-select" id="inputGroupSelect01">
-                        <option value="1" selected>Cash</option>
-                        <option value="2">Card</option>
-                        <option value="3">Bank wire</option>
+                        <option value="Cash" selected>Cash</option>
+                        <option value="Card">Card</option>
+                        <option value="Bank Wire">Bank wire</option>
                     </select>
             </div>
             
