@@ -70,7 +70,7 @@ class Admins extends Controller {
         unset($_SESSION['user_firstName']);
         unset($_SESSION['user_lastName']);
         session_destroy();
-        redirect('pages/index');
+        redirect('admins/login');
         
     }
     public function createUserSession($user){

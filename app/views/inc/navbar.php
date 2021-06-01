@@ -20,9 +20,15 @@
                   <li class="nav-item">
                   <a class="nav-link" aria-current="page" href="#">Welcome <?php echo $_SESSION['user_firstName'] ?></a>
                 </li>
+                <?php if($_SESSION['user_email']=='zitouni.sd@gmail.com') : ?>
+                  <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="<?php echo URLROOT ?>admins/logout">Log Out</a>
+                  </li>
+                <?php else : ?>
                   <li class="nav-item">
                   <a class="nav-link" aria-current="page" href="<?php echo URLROOT ?>users/logout">Log Out</a>
                 </li>
+                <?php endif; ?>
       <?php else : ?>
           <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Fifth navbar example">
           <div class="container container-fluid">

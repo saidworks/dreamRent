@@ -3,7 +3,7 @@
 <?php flash('post_message'); ?>
 <div class="row">
     <div class="col-md-6">
-    <h1> Posts </h1>
+    <h1> Vehicle Posts </h1>
     </div>
     <div class="col-md-6">
     <a href="<?php echo URLROOT; ?>posts/add" class="btn btn-primary mt-1 float-end"><i class="fa fa-pencil"></i> Add Post

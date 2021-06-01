@@ -21,12 +21,13 @@ class Bookings extends Controller{
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             //sanitize POST array 
             $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
-             
+           
             
         $data = [
             'categoryId' => trim($_POST['categoryId']),
             'rate' => trim($_POST['rate']),
             'user_id' => $_SESSION['user_id'],
+            'user_email' => $_SESSION['user_email'],
             'dateOut' => trim($_POST['dateOut']),
             'dateReturned' => trim($_POST['dateReturned']),
             'vehicleId' => trim($_POST['vehicleId']),
@@ -60,6 +61,7 @@ class Bookings extends Controller{
             // validated
             if($this->bookingModel->booking($data)){
                 flash('post_message','Reserved successfully');
+                sendMail($data);
                 redirect('bookings');
             }
             else{
