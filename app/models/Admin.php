@@ -1,12 +1,12 @@
 <?php 
 
-class User{
+class Admin{
     private $db;
     public function __construct(){
         $this->db = new Database();
     }
-    public function findUserByEmail($email){
-        $sql = 'SELECT email FROM customers WHERE email=:email';
+    public function findAdminByEmail($email){
+        $sql = 'SELECT email FROM admins WHERE email=:email';
         $values = [':email',$email];
         if($this->db->queryDB($sql,Database::SELECTSINGLE,$values)->email == $email){
             return true;
@@ -26,6 +26,7 @@ class User{
             return false;
         }
     }
+
     public function login($email,$password){
         $sql = "SELECT * FROM customers WHERE email=:email";
         $values = [':email',$email];
@@ -39,7 +40,7 @@ class User{
         }
     }
     public function getUserById($id){
-        $sql = 'SELECT * FROM customers WHERE id=:id';
+        $sql = 'SELECT * FROM admins WHERE id=:id';
         $values = [':id',$id];
         $row = $this->db->queryDB($sql,Database::SELECTSINGLE,$values);
         if($row->id == $id){
