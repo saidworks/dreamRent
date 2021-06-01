@@ -32,7 +32,9 @@ class Bookings extends Controller{
             'vehicleId' => trim($_POST['vehicleId']),
             'paymentMethod' => trim($_POST['paymentMethod']),
             'categoryId_err' => '',
-            'payment_err' => ''
+            'payment_err' => '',
+            'dateOut_err' => '',
+            'dateReturned_err' => ''
         ];
        
         //form validation 
@@ -45,6 +47,13 @@ class Bookings extends Controller{
         }
         if(empty($data['paymentMethod'])){
             $data['payment_err'] = 'Please choose payment method';
+        }
+        // validate dates
+        if(empty($data['dateOut'])){
+            $data['dateOut_err'] = 'Please choose a date for pick up';
+        }
+        if(empty($data['dateReturned'])){
+            $data['dateReturned_err'] = 'Please choose a date for drop off';
         }
         // make sure no errors 
         if(empty($data['categoryId_err']) && empty($data['payment_err']) && empty($data['rate_err'])){
