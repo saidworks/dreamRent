@@ -12,11 +12,13 @@ class Users extends Controller {
                 $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
                //init data 
                $data = [
-                'name' => trim($_POST['name']),
+                'firstName' => trim($_POST['firstName']),
+                'lastName' => trim($_POST['lastName']),
                 'email' => trim($_POST['email']),
                 'password' => trim($_POST['password']),
                 'repassword' => trim($_POST['repassword']),
-                'name_error' => '',
+                'firstName_error' => '',
+                'lastName_error' => '',
                 'email_error' => '',
                 'password_error' => '',
                 'repassword_error' =>''
@@ -29,8 +31,11 @@ class Users extends Controller {
                 $data['email_err'] = 'There is an account with this email';    
                 }
                 // Validate name 
-                if(empty($data['name'])){
-                    $data['name_err'] = 'Please enter your name';    
+                if(empty($data['firstName'])){
+                    $data['firstName_err'] = 'Please enter your first name';    
+                    }
+                if(empty($data['lastName'])){
+                    $data['lastName_err'] = 'Please enter your last name';    
                     }
                 // Validate password
                 if(empty($data['password'])){
@@ -49,7 +54,7 @@ class Users extends Controller {
                     }
                 }
                 //make sure  errors are empty
-                if(empty($data['email_err']) && empty($data['name_err']) && empty($data['password_err']) && empty($data['repassword_err'])){
+                if(empty($data['email_err']) && empty($data['firstName_err']) && empty($data['lastName_err']) && empty($data['password_err']) && empty($data['repassword_err'])){
                     // Validated 
                     //Process using model
                     $data['password'] = password_hash($data['password'],PASSWORD_DEFAULT); 
@@ -66,12 +71,15 @@ class Users extends Controller {
         }
         else{
             //init data 
+            
             $data = [
-                'name' => '',
+                'firstName' => '',
+                'lastName' => '',
                 'email' => '',
                 'password' => '',
                 'repassword' => '',
-                'name_error' => '',
+                'firstName_error' => '',
+                'lastName_error' => '',
                 'email_error' => '',
                 'password_error' => '',
                 'repassword_error' =>''

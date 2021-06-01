@@ -7,8 +7,13 @@
             <p>Please fill out this form to register with us</p>
             <form action="<?php echo URLROOT; ?>users/register" method="post">
                 <div class='form-group'>
-                <label for="name">Name: <sup>*</sup></label>
-                <input type="text" name="name" class="form-control form-control-lg <?php echo (!empty($data['name_err'])) ? 'is-invalid' :''; ?>" value="<?php echo $data['name'] ?>">
+                <label for="firstName">Name: <sup>*</sup></label>
+                <input type="text" name="firstName" class="form-control form-control-lg <?php echo (!empty($data['firstName_err'])) ? 'is-invalid' :''; ?>" value="<?php echo $data['firstName'] ?>">
+                <span class="invalid-feedback"><?php echo $data['name_err'] ?></span>
+                </div>
+                <div class='form-group'>
+                <label for="lastName">Name: <sup>*</sup></label>
+                <input type="text" name="lastName" class="form-control form-control-lg <?php echo (!empty($data['lastName_err'])) ? 'is-invalid' :''; ?>" value="<?php echo $data['lastName'] ?>">
                 <span class="invalid-feedback"><?php echo $data['name_err'] ?></span>
                 </div>
                 <div class='form-group'>
