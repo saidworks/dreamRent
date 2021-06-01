@@ -3,9 +3,10 @@
 <a href="<?php echo URLROOT; ?>posts" class="btn btn-light"> <i class="fa fa-backward"></i> Back</a>
  
     <div class="card card-body bg-light mt-5">
+    
         <h2>Edit Post</h2>
         <p>You can edit your previous post with this form</p>
-        <form action="<?php echo URLROOT.'posts/edit/'.$data['id']; ?>" method="post"  enctype="multipart/form-data">
+        <form action="<?php echo URLROOT.'posts/edit/'.$data['id'][0]; ?>" method="post"  enctype="multipart/form-data">
             <div class='form-group mb-3'>
             <label for="description">Decription: <sup>*</sup></label>
             <input type="text" name="description" class="form-control form-control-lg <?php echo (!empty($data['description_err'])) ? 'is-invalid' :''; ?>" value="<?php echo $data['description'] ?>">

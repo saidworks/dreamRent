@@ -137,7 +137,8 @@ class Posts extends Controller{
             'picture' => $destination,
             'user_id' => $_SESSION['user_id'],
             'categoryId_err' => '',
-            'description_err' => ''
+            'description_err' => '',
+            'id' => $id
         ];
        
         //form validation 
@@ -155,8 +156,9 @@ class Posts extends Controller{
         if(empty($data['categoryId_err']) && empty($data['description_err']) && empty($data['rate_err'])){
             // validated
             if($this->postModel->editPost($data)){
-                flash('post_message','Post Added');
-                redirect('posts');
+                var_dump($data);
+                flash('post_message','Post modified');
+                //redirect('posts');
             }
             else{
                 die('something went wrong');

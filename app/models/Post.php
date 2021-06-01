@@ -36,8 +36,8 @@ class Post {
     }
 
     public function editPost($data){
-        $sql = "UPDATE vehicle SET categoryId=:categoryId,picture=:picture,description=:description,rate=:rate";
-        $values = array([':categoryId',$data['categoryId']],[':picture',$data['picture']],[':description',$data['description']],[':rate',$data['rate']]);
+        $sql = "UPDATE vehicle SET categoryId=:categoryId,picture=:picture,description=:description,rate=:rate WHERE id=:id";
+        $values = array([':categoryId',$data['categoryId']],[':picture',$data['picture']],[':description',$data['description']],[':rate',$data['rate']],[':id',$data['id'][0]]);
         if($this->db->queryDB($sql,Database::EXECUTE,$values)){
             return true;
         }
