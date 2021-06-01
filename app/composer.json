@@ -1,0 +1,14 @@
+{
+    "name": "saidworks/dream-rent",
+    "description": "car rental",
+    "type": "project",
+    "require": {
+        "phpmailer/phpmailer": "^6.4"
+    },
+    "authors": [
+        {
+            "name": "Said ZITOUNIT",
+            "email": "zitouni.sd@gmail.com"
+        }
+    ]
+}
