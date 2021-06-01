@@ -4,18 +4,33 @@
  
     <div class="card card-body bg-light mt-5">
         <h2>Edit Post</h2>
-        <p>You can create a post with this form</p>
-        <form action="<?php echo URLROOT.'posts/edit/'.$data['id']; ?>" method="post">
-            <div class='form-group'>
-            <label for="title">Title: <sup>*</sup></label>
-            <input type="text" name="title" class="form-control form-control-lg <?php echo (!empty($data['title_err'])) ? 'is-invalid' :''; ?>" value="<?php echo $data['title'] ?>">
-            <span class="invalid-feedback"><?php echo $data['title_err'] ?></span>
+        <p>You can edit your previous post with this form</p>
+        <form action="<?php echo URLROOT.'posts/edit/'.$data['id']; ?>" method="post"  enctype="multipart/form-data">
+            <div class='form-group mb-3'>
+            <label for="description">Decription: <sup>*</sup></label>
+            <input type="text" name="description" class="form-control form-control-lg <?php echo (!empty($data['description_err'])) ? 'is-invalid' :''; ?>" value="<?php echo $data['description'] ?>">
+            <span class="invalid-feedback"><?php echo $data['description_err'] ?></span>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="categoryId">Category of the vehicle</label>
+                </div>
+                    <select name="categoryId" class="custom-select" id="inputGroupSelect01">
+                        <option value="1" selected>Car</option>
+                        <option value="2">Motocycle</option>
+                        <option value="3">Minibus</option>
+                    </select>
             </div> 
-            <div class='form-group'>
-            <label for="body">Body: <sup>*</sup></label>
-            <textarea name="body" class="form-control form-control-lg <?php echo (!empty($data['body_err'])) ? 'is-invalid' :''; ?>"> <?php echo $data['body'] ?> </textarea>
-            <span class="invalid-feedback"><?php echo $data['body_err'] ?></span>
+            <div class='form-group mb-3'>
+            <label for="rate">Rental Rate: <sup>*</sup></label>
+            <input type="number" name="rate" class="form-control form-control-lg <?php echo (!empty($data['rate_err'])) ? 'is-invalid' :''; ?>" value="<?php echo $data['rate'] ?>">
+            <span class="invalid-feedback"><?php echo $data['rate_err'] ?></span>
             </div> 
+            <div class='form-group mb-3'>
+            <label for="picture">Picture: <sup>*</sup></label>
+            <input type="hidden" name="MAX_FILE_SIZE" value="30000000">
+            <input type="file" name="upload" value="">
+            </div>
             <input type="submit" class="btn btn-success" value="Submit">
         </form>
     </div>

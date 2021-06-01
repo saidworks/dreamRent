@@ -59,7 +59,7 @@ class Posts extends Controller{
             'picture' => $destination,
             'user_id' => $_SESSION['user_id'],
             'categoryId_err' => '',
-            'body_err' => ''
+            'description_err' => ''
         ];
        
         //form validation 
@@ -71,7 +71,7 @@ class Posts extends Controller{
             $data['rate_err'] = 'Please enter rental rate';
         }
         if(empty($data['description'])){
-            $data['description_err'] = 'Please enter decription text';
+            $data['description_err'] = 'Please enter description text';
         }
         // make sure no errors 
         if(empty($data['categoryId_err']) && empty($data['description_err']) && empty($data['rate_err'])){

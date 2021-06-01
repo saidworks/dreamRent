@@ -13,12 +13,13 @@
 <?php foreach($data["posts"] as $post) : ?>
     <div class="card card-body mb-4">
         <h4 class="card-title"> <?php echo $post->description ?></h4>
-        <div class="bg-light p-2 mb3">
-        <img src="<?php echo $post->picture ?>" alt="">    
+        <div class="bg-light p-2 mb-3">
+        <img class="img-fluid" src="<?php echo $post->picture ?>" alt="">    
         </div>
         <p class="card-text"><?php echo $post->rate ?></p>
+        
         <!-- query string send an array need to check out why -->
-        <a href="<?php echo URLROOT; ?>posts/show/<?php echo $post->id; ?>" class="btn btn-dark">MORE</a>
+        <a href="<?php echo URLROOT; ?>posts/show/<?php echo $post->vehicleId; ?>" class="btn btn-dark">MORE</a>
     </div>
 <?php endforeach; ?>
 <?php require_once APPROOT.'/views/inc/footer.php'; ?>
