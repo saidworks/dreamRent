@@ -25,21 +25,27 @@ class Admins extends Controller {
                 if(empty($data['password'])){
                     $data['password_err'] = 'Please enter your password';    
                     }
+             
                 //make sure  errors are empty
                 if(empty($data['email_err']) && empty($data['password_err'])){
                     // Validated 
-                    if($this->userModel->findUserbyEmail($data['email'])){
-                        //User found
-                        // check and set logged in user
-                        $loggedInUser = $this->adminModel->login($data['email'],$data['password']);
-                        if($loggedInUser){
-                            //create session variables
-                            $this->createUserSession($loggedInUser);
-                        }
-                        else{
-                            $data['password_err'] = 'Password incorrect';
-                            $this->view('admins/login',$data);
-                        }
+                       // check for user/email 
+                if($this->adminModel->findAdminbyEmail($data['email'])){
+                    //User found
+                    // check and set logged in user
+                    $loggedInUser = $this->adminModel->login($data['email'],$data['password']);
+                    if($loggedInUser){
+                        //create session variables
+                        $this->createUserSession($loggedInUser);
+                    }
+                    else{
+                        $data['password_err'] = 'Password incorrect';
+                        $this->view('admins/login',$data);
+                    }
+                }
+                else{
+                    $data['email_err'] = 'no user found';
+                }
                 }
                 else{
                     //load view with errors
@@ -58,6 +64,15 @@ class Admins extends Controller {
             $this->view('admins/login',$data);
         }
     }
+    public function logout(){
+        unset($_SESSION['user_id']);
+        unset($_SESSION['user_email']);
+        unset($_SESSION['user_firstName']);
+        unset($_SESSION['user_lastName']);
+        session_destroy();
+        redirect('pages/index');
+        
+    }
     public function createUserSession($user){
         $_SESSION['user_id'] = $user->id;
         $_SESSION['user_email'] = $user->email;
@@ -65,14 +80,5 @@ class Admins extends Controller {
         $_SESSION['user_lastName'] = $user->lastName;
         redirect('posts/index');
     }
-    public function logout(){
-        unset($_SESSION['user_id']);
-        unset($_SESSION['user_email']);
-        unset($_SESSION['user_firstName']);
-        unset($_SESSION['user_lastName']);
-        session_destroy();
-        redirect('Pages/index');
-    }
   
-
 }
