@@ -27,6 +27,7 @@ class Bookings extends Controller{
             'categoryId' => trim($_POST['categoryId']),
             'rate' => trim($_POST['rate']),
             'user_id' => $_SESSION['user_id'],
+            'user_firstName' => $_SESSION['user_firstName'],
             'user_email' => $_SESSION['user_email'],
             'dateOut' => trim($_POST['dateOut']),
             'dateReturned' => trim($_POST['dateReturned']),

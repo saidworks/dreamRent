@@ -44,13 +44,13 @@ function sendMail($data){
             $mail->SMTPAuth = true;
 
             //Username to use for SMTP authentication - use full email address for gmail
-            $mail->Username = 'said.storage@gmail.com';
+            $mail->Username = 'username@gmail.com';
 
             //Password to use for SMTP authentication
-            $mail->Password = '2443421@Sa';
+            $mail->Password = 'password';
 
             //Set who the message is to be sent from
-            $mail->setFrom('said.storage@gmail.com', 'Dream Rent');
+            $mail->setFrom('senderemail', 'Dream Rent');
 
 
             //Set who the message is to be sent to
@@ -62,7 +62,7 @@ function sendMail($data){
             //Read an HTML message body from an external file, convert referenced images to embedded,
             //convert HTML into a basic plain-text alternative body
             $mail->isHTML(true); 
-            $mail->Body    = "we confirm your reservation for the vehicle Number ".$data['vehicleId']." between ".$data['dateOut']." and ".$data['dateReturned']." is confirmed." ;
+            $mail->Body    = "Dear ".$data['user_firstName']."<br>Your reservation for the vehicle Number ".$data['vehicleId']." between ".$data['dateOut']." and ".$data['dateReturned']." is confirmed." ;
 
             // //Replace the plain text body with one created manually
             $mail->AltBody = "we confirm your reservation for the".$data['description'];
